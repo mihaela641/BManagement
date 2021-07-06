@@ -1,0 +1,36 @@
+.btn{
+    color: white;
+}
+
+.search-box{
+float: right;
+width: 200px;
+padding-right: 10px;
+}
+
+.search-button{
+    float: right;
+    padding-right: 10px;
+}
+
+
+
+h2{
+    text-align: center;
+    padding-top: 5%;
+}
+
+.myBody tr:hover {
+    background-color: rgba(0, 128, 128, 0.308);
+}
+
+.myTable{
+    min-height: 650px;
+}
+.icon:hover{
+    color: tomato;
+    cursor: pointer;
+}
+.actions{
+    text-align: right;
+}

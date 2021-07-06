@@ -1,0 +1,47 @@
+
+    <div class="col-md-6 offset-md-3">
+        <h3> Create Order </h3>
+        <form (ngSubmit) = "onSubmit()">
+        <div *ngIf = "(message)!=''">
+            <em class = "text-danger">{{message}}</em>
+        </div>
+            <div class="form-group">
+                <label> Code </label>
+                <input type="text" class ="form-control" id = "code"
+                    [(ngModel)] = "order.code" name = "code">
+            </div>
+            <div class="col-xs-12" style="height:20px;"></div>
+            <div class="form-group">
+                <label style="padding-right: 10px;"> Product </label>
+                <select [(ngModel)]="order.product" name="product">
+                    <option *ngFor="let pr of products" [ngValue]="pr">{{pr.name}}</option>
+                  </select>
+            </div>
+            
+            <div class="col-xs-12" style="height:20px;"></div>
+            <div class="form-group">
+                <label> Quantity </label>
+                <input type="number" class ="form-control" id = "quantity"
+                    [(ngModel)] = "order.quantity" name = "quantity">
+            </div>
+            
+            <div class="col-xs-12" style="height:20px;"></div>
+            <div class="form-group">
+                <label style="padding-right: 10px;"> Shop </label>
+                <select [(ngModel)]="order.shop" name="shop">
+                    <option *ngFor="let sh of shops" [ngValue]="sh">{{sh.name}}</option>
+                  </select>
+            </div>
+            <div class="col-xs-12" style="height:20px;"></div>
+        <div class="form-group">
+            <label style="padding-right: 10px;"> Status </label>
+            <select [(ngModel)]="inputStatus" name = "inputStatus">
+                <option *ngFor="let c of statuses" [ngValue]="c">{{c}}</option>
+              </select>
+        </div>
+            <div class="col-xs-12" style="height:20px;"></div>
+            <button class = "btn btn-success" type ="submit">Submit</button>
+        
+        </form>
+        </div> 
+

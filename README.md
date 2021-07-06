@@ -1,2 +1,3 @@
-# BManagement
-Full project with java spring-backend and angular front-end
+# Business Management
+
+Business Management Project

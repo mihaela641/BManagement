@@ -1,0 +1,43 @@
+<div class="create">
+    <button routerLink= "/create-recipe" routerLinkActive = "active" class = "btn btn-success">Create</button> 
+    </div>
+    <div class = "search-button">
+        <button class="btn btn-info" type = "submit" (click)="clear()">Clear</button>
+    </div>
+    <div class="searchName">
+        <div class = "search-button">
+             <button class="btn btn-success" type = "submit" (click)="search()">Search</button>
+        </div>
+        <div class = "search-box">
+            <input type="text" class="search form-control"  [(ngModel)]="inputName">
+        </div>
+        <div class = "label">
+            <label>Code</label>
+        </div>
+    </div>
+    <div class="myTable">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id<mat-icon class = "sortBy" (click)="sort('id')">swap_vert</mat-icon></th>
+                    <th>Name<mat-icon class = "sortBy" (click)="sort('name')">swap_vert</mat-icon></th>
+                    <th>Description<mat-icon class = "sortBy" (click)="sort('description')">swap_vert</mat-icon></th>
+                    <th class="actions">Actions</th>
+                </tr>
+            </thead>
+                <tbody class = "myBody">
+                    <tr *ngFor="let recipe of recipes| paginate: { itemsPerPage: itemsPerPage, currentPage: page, totalItems: items }">
+                        <td>{{recipe.id}}</td>
+                        <td>{{recipe.name}}</td>
+                        <td>{{recipe.description}}</td>
+                        <td class="actions">
+                            <i class = "icon" (click) = 'updateRecipe(recipe.id)'><mat-icon>build</mat-icon></i>
+                            <i  class = "icon" (click) = 'deleteRecipe(recipe.id)'><mat-icon>delete</mat-icon></i>
+                        </td>
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+    <div class = "myPaging">
+        <pagination-controls (pageChange)='changePage($event)' (pageBoundCorrection)='changePage($event)'></pagination-controls>
+    </div>

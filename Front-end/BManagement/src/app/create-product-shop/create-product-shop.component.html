@@ -1,0 +1,32 @@
+
+    <div class="col-md-6 offset-md-3">
+        <h3> Add Product in Shop</h3>
+        <form (ngSubmit) = "onSubmit()">
+        <div *ngIf = "(message)!=''">
+            <em class = "text-danger">{{message}}</em>
+        </div>
+            <div class="form-group">
+                <label style="padding-right: 10px;"> Product </label>
+                <select [(ngModel)]="productShop.product" name="product">
+                    <option *ngFor="let c of products" [ngValue]="c">{{c.name}}</option>
+                  </select>
+            </div>
+            <div class="col-xs-12" style="height:20px;"></div>
+            <div class="form-group">
+                <label style="padding-right: 10px;"> Shop </label>
+                <select [(ngModel)]="productShop.shop" name="shop">
+                    <option *ngFor="let s of shops" [ngValue]="s">{{s.name}}</option>
+                  </select>
+            </div>
+            <div class="col-xs-12" style="height:20px;"></div>
+            <div class="form-group">
+                <label> Quantity </label>
+                <input type="number" class ="form-control" id = "quantity"
+                    [(ngModel)] = "productShop.quantity" name = "quantity">
+            </div>
+            <div class="col-xs-12" style="height:20px;"></div>
+            <button class = "btn btn-success" type ="submit">Submit</button>
+        
+        </form>
+        </div> 
+

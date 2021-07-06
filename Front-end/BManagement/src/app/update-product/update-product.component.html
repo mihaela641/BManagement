@@ -1,0 +1,43 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Product </h3>
+    <form (ngSubmit) = "onSubmit()">
+        <div *ngIf = "(message)!=''">
+            <em class = "text-danger">{{message}}</em>
+        </div>
+        <div class="form-group">
+            <label> Name </label>
+            <input type="text" class ="form-control" id = "name"
+                [(ngModel)] = "product.name" name = "name">
+        </div>
+        <div class="col-xs-12" style="height:20px;"></div>
+        <div class="form-group">
+            <label style="padding-right: 10px;"> Type </label>
+            <select [(ngModel)]="product.type" name="type">
+                <option *ngFor="let c of types" [ngValue]="c">{{c.name}}</option>
+              </select>
+        </div>
+        <div class="col-xs-12" style="height:20px;"></div>
+        <div class="form-group">
+            <label> Price </label>
+            <input type="number" class ="form-control" id = "price"
+                [(ngModel)] = "product.price" name = "price">
+        </div>
+        <div class="col-xs-12" style="height:20px;"></div>
+
+        <div class="form-group">
+            <label> Date Added </label>
+            <input type="date" class ="form-control" id = "dateAdded"
+                [(ngModel)] = "product.dateAdded" name = "dateAdded">
+        </div>
+        <div class="col-xs-12" style="height:20px;"></div>
+        <div class="form-group">
+            <label style="padding-right: 10px;"> Manufacturer </label>
+            <select [(ngModel)]="product.manufacturer" name="manufacturer">
+                <option *ngFor="let m of manufacturers" [ngValue]="m">{{m.name}}</option>
+              </select>
+        </div>
+        <div class="col-xs-12" style="height:20px;"></div>
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    </div> 

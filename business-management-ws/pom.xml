@@ -1,0 +1,140 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>bg.infosys.interns</groupId>
+		<artifactId>business-management</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>business-management-ws</artifactId>
+	<packaging>war</packaging>
+	<name>business-management-ws</name>
+	<description>Business Management Web-Service Project</description>
+
+	<properties>
+		<!-- Java and Maven plug-ins Versions -->
+		<v.java>11</v.java>
+		<v.compiler.plugin>3.8.1</v.compiler.plugin>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<!-- Infosys Common WS -->
+		<v.infosys.common.ws>1.6</v.infosys.common.ws>
+
+		<!-- Javax Servlet Api Version -->
+		<v.javax.servlet>3.0.1</v.javax.servlet>
+
+		<!-- Java Mail Api Version -->
+		<v.mail>1.4</v.mail>
+
+		<!-- Swagger Version -->
+		<v.springfox.swaagger>2.9.2</v.springfox.swaagger>
+
+		<!-- Javax Validation Version -->
+		<v.javax.validation>2.0.1.Final</v.javax.validation>
+
+		<!-- Hibernate Validator Version -->
+		<v.hibernate.validator>6.1.5.Final</v.hibernate.validator>
+
+		<!-- Default encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+	<!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
+<dependency>
+    <groupId>javax.annotation</groupId>
+    <artifactId>javax.annotation-api</artifactId>
+    <version>1.3.2</version>
+</dependency>
+		<!-- DB Project Dependency -->
+		<dependency>
+			<groupId>bg.infosys.interns</groupId>
+			<artifactId>business-management-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- Infosys Common WS Dependency -->
+		<dependency>
+			<groupId>bg.infosys.common</groupId>
+			<artifactId>infosys-common-ws</artifactId>
+			<version>${v.infosys.common.ws}</version>
+		</dependency>
+
+		<!-- Javax Servlet Api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${v.javax.servlet}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Java Mail API -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>${v.mail}</version>
+		</dependency>
+
+		<!-- Swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${v.springfox.swaagger}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${v.springfox.swaagger}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-bean-validators</artifactId>
+			<version>${v.springfox.swaagger}</version>
+		</dependency>
+
+		<!-- Java Validation -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>${v.javax.validation}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${v.hibernate.validator}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator-annotation-processor</artifactId>
+			<version>${v.hibernate.validator}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+		
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.datatype</groupId>
+		    <artifactId>jackson-datatype-jsr310</artifactId>
+		    <version>2.12.3</version>
+		</dependency>
+				
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		    <version>2.12.3</version>
+		</dependency>
+	<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+		<dependency>
+    		<groupId>org.mockito</groupId>
+    		<artifactId>mockito-core</artifactId>
+    		<version>3.9.0</version>
+    		<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+</project>

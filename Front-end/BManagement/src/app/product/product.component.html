@@ -1,0 +1,63 @@
+<div class = "create">
+    <button routerLink = "/create-product" routerLinkActive = "active" class = "btn btn-success">Create</button>
+    </div>
+    <div class = "search-button">
+        <button class="btn btn-info" type = "submit" (click)="clear()">Clear</button>
+    </div>
+    
+    <div class="searchName">
+        <div class = "search-button">
+             <button class="btn btn-success" type = "submit" (click)="search()">Search</button>
+        </div>
+        <div class = "search-box">
+            <input type="text" class="search form-control" [(ngModel)]="inputName">
+        </div>
+        <div class = "label">
+            <label>Name</label>
+        </div>
+        <div class = "search-box">
+            <input type="date" class="search form-control" [(ngModel)]="inputDateTo">
+        </div>
+        <div class = "label">
+            <label>Date To</label>
+        </div>
+        <div class = "search-box">
+            <input type="date" class="search form-control" [(ngModel)]="inputDateFrom">
+        </div>
+        <div class = "label">
+            <label>Date From</label>
+        </div>
+    </div>
+    
+    <div class = "myTable">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id<mat-icon class = "sortBy" (click)="sort('id')">swap_vert</mat-icon></th>
+                <th>Name<mat-icon class = "sortBy" (click)="sort('name')">swap_vert</mat-icon></th>
+                <th>Type<mat-icon class = "sortBy" (click)="sort('type')">swap_vert</mat-icon></th>
+                <th>Price<mat-icon class = "sortBy" (click)="sort('price')">swap_vert</mat-icon></th>
+                <th>Date Added<mat-icon class = "sortBy" (click)="sort('dateAdded')">swap_vert</mat-icon></th>
+                <th>Manufacturer<mat-icon class = "sortBy" (click)="sort('manufacturer')">swap_vert</mat-icon></th>
+                <th class= "actions">Action</th>
+            </tr>
+         </thead>
+             <tbody class = "myBody">
+                 <tr *ngFor = "let product of products | paginate: { itemsPerPage: itemsPerPage, currentPage: page, totalItems: items }">
+                    <td>{{product.id}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.type.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.dateAdded}}</td> 
+                    <td>{{product.manufacturer.name}}</td>
+                    <td class="actions">
+                        <i class = "icon" (click) = 'updateProduct(product.id)'><mat-icon>build</mat-icon></i>
+                        <i  class = "icon" (click) = 'deleteProduct(product.id)'><mat-icon>delete</mat-icon></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class = "myPaging">
+        <pagination-controls (pageChange)='changePage($event)' (pageBoundCorrection)='changePage($event)'></pagination-controls>
+    </div>

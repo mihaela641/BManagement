@@ -1,0 +1,41 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Order </h3>
+    <form (ngSubmit) = "onSubmit()">
+    <div class="form-group">
+        <label> Code </label>
+        <input type="text" class ="form-control" [(ngModel)]="order.code" name="code">
+    </div>
+
+    <div class="col-xs-12" style="height:20px;"></div>
+
+    <div class="form-group">
+        <label style="padding-right: 10px;"> Product </label>
+        <select [(ngModel)]="order.product" name="product">
+            <option *ngFor="let c of products" [ngValue]="c">{{c.name}}</option>
+          </select>
+    </div>
+    <div class="col-xs-12" style="height:20px;"></div>
+
+    <div class="form-group">
+        <label style="padding-right: 10px;"> Shop </label>
+        <select [(ngModel)]="order.shop" name="shop">
+            <option *ngFor="let c of shops" [ngValue]="c">{{c.name}}</option>
+          </select>
+    </div>
+
+    <div class="col-xs-12" style="height:20px;"></div>
+    <div class="form-group">
+        <label> Quantity </label>
+        <input type="text" class ="form-control" [(ngModel)]="order.quantity" name="quantity">
+    </div>
+    <div class="col-xs-12" style="height:20px;"></div>
+        <div class="form-group">
+            <label> Status </label>
+            <input type="text" class ="form-control"
+                [(ngModel)] = "order.status" name = "status">
+        </div>
+        <div class="col-xs-12" style="height:20px;"></div>
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    </div> 

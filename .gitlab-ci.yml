@@ -1,0 +1,51 @@
+include:
+  - template: Code-Quality.gitlab-ci.yml
+
+stages:
+    - build
+    - code-quality
+    - deploy
+
+build_war:
+    stage: build
+    tags: 
+        - ci-runner
+    script:
+        - mvn -P dev clean package
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^develop$/'
+          when: always
+
+    
+code_quality:
+    stage: code-quality
+    services:
+    tags:
+        - ci-cq-runner
+    variables:
+        REPORT_FORMAT: html
+    artifacts:
+        paths: [gl-code-quality-report.html]
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^develop$/'
+          when: always
+
+build_docker_image:
+    stage: build
+    tags: 
+        - ci-runner
+    script:
+        - mvn -P test clean package
+    rules:
+        - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^testing$/'
+          when: always
+
+deploy_test:
+    stage: deploy
+    when: manual
+    tags: 
+        - ci-runner
+    script:
+        - docker push 10.0.7.60:5000/business-management
+    only:
+        - /testing/

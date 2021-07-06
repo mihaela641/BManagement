@@ -1,0 +1,55 @@
+<div class="create">
+    <button routerLink = "/create-type" routerLinkActive = "active" class = "btn btn-success">Create</button>
+</div>
+<div class = "search-button"> 
+    <button class="btn btn-info" type = "submit" (click)="clear()">Clear</button>
+</div>
+
+<div class="searchName">
+    <div class = "search-button">
+         <button class="btn btn-success" type = "submit" (click)="search()">Search</button>
+    </div>
+    <div class = "search-box">
+        <input type="text" class="search form-control" [(ngModel)]="inputName">
+    </div>
+    <div class = "label">
+        <label>Name</label>
+    </div>
+</div>
+
+<div class="searchName">
+    <div class = "search-box">
+        <input type="text" class="search form-control" [(ngModel)]="inputCode">
+    </div>
+    <div class = "label">
+        <label>Code</label>
+    </div>
+</div>
+<div class = "myTable">
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Parent-Type</th>
+            <th class="actions">Action</th>
+        </tr>
+     </thead>
+         <tbody class = "myBody">
+             <tr *ngFor = "let type of types | paginate: { itemsPerPage: itemsPerPage, currentPage: page, totalItems: items }">
+                <td>{{type.id}}</td>
+                <td>{{type.code}}</td>
+                <td>{{type.name}}</td>
+                <td>{{type.parentType}}</td>
+                <td class="actions">
+                    <i class = "icon" (click) = 'updateType(type.id)'><mat-icon>build</mat-icon></i>
+                    <i  class = "icon" (click) = 'deleteType(type.id)'><mat-icon>delete</mat-icon></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class = "myPaging">
+    <pagination-controls (pageChange)='changePage($event)' (pageBoundCorrection)='changePage($event)'></pagination-controls>
+</div>

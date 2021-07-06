@@ -1,0 +1,47 @@
+.btn{
+    color: white;
+}
+
+.search-box{
+float: right;
+width: 200px;
+padding-right: 10px;
+}
+.search-button{
+    float: right;
+    padding-right: 10px;
+}
+
+h2{
+    text-align: center;
+    padding-top: 5%;
+}
+.create{
+    float:left;
+}
+
+.myBody tr:hover {
+    background-color: rgba(0, 128, 128, 0.308);
+}
+
+.label{
+    float: right;
+    padding-top:8px;
+    padding-right: 5px;
+}
+
+.myTable{
+    min-height: 650px;
+}
+.icon:hover{
+    color: tomato;
+    cursor: pointer;
+}
+.actions{
+    text-align: right;
+}
+
+.sortBy:hover{
+    cursor: pointer;
+    color: tomato;
+}

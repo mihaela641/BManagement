@@ -1,0 +1,53 @@
+<div class = "create">
+    <button routerLink = "/create-tag" routerLinkActive = "active" class = "btn btn-success">Create</button>
+</div>
+<div class = "search-button">
+    <button class="btn btn-info" type = "submit" (click)="clear()">Clear</button>
+</div>
+
+<div class="searchName">
+    <div class = "search-button">
+         <button class="btn btn-success" type = "submit" (click)="search()">Search</button>
+    </div>
+    <div class = "search-box">
+        <input type="text" class="search form-control" [(ngModel)]="inputName">
+    </div>
+    <div class = "label">
+        <label>Name</label>
+    </div>
+</div>
+
+<div class="searchName">
+    <div class = "search-box">
+        <input type="text" class="search form-control" [(ngModel)]="inputCode">
+    </div>
+    <div class = "label">
+        <label>Code</label>
+    </div>
+</div>
+<div class = "myTable">
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id<mat-icon class = "sortBy" (click)="sort('id')">swap_vert</mat-icon></th>
+            <th>Code<mat-icon class = "sortBy" (click)="sort('code')">swap_vert</mat-icon></th>
+            <th>Name<mat-icon class = "sortBy" (click)="sort('name')">swap_vert</mat-icon></th>
+            <th class="actions">Action</th>
+        </tr>
+     </thead>
+         <tbody class = "myBody">
+             <tr *ngFor = "let tag of tags | paginate: { itemsPerPage: itemsPerPage, currentPage: page, totalItems: items }">
+                <td>{{tag.id}}</td>
+                <td>{{tag.code}}</td>
+                <td>{{tag.name}}</td> 
+                <td class="actions">
+                    <i class = "icon" (click) = 'updateTag(tag.id)'><mat-icon>build</mat-icon></i>
+                    <i  class = "icon" (click) = 'deleteTag(tag.id)'><mat-icon>delete</mat-icon></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class = "myPaging">
+    <pagination-controls (pageChange)='changePage($event)' (pageBoundCorrection)='changePage($event)'></pagination-controls>
+</div>

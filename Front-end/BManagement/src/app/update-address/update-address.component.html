@@ -1,0 +1,22 @@
+<div class="img-backgound">
+    <div class="col-md-6 offset-md-3">
+        <h3> Update Address </h3>
+        <form (ngSubmit) = "onSubmit()">
+        <div>
+        </div>
+            <div class="form-group">
+                <label> Street </label>
+                <input type="text" class ="form-control" id = "street"
+                    [(ngModel)] = "address.street" name = "street">
+            </div>
+            <div class="col-xs-12" style="height:20px;"></div>
+            <div class="form-group">
+                <label> Country </label>
+                <input type="text" class ="form-control" id = "country"
+                    [(ngModel)] = "address.country" name = "country">
+            </div>
+            <div class="col-xs-12" style="height:20px;"></div>
+            <button class = "btn btn-success" type ="submit">Submit</button>
+        </form>
+    </div> 
+</div>
